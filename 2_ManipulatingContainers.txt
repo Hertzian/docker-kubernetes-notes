@@ -1,0 +1,108 @@
+to interact with docker images:
+docker run <image name> command!
+
+example:
+docker run hello-world
+output:
+1.- Display all the content of that image
+2.- This happens because is a simple text file
+
+example:
+docker run busybox echo hi there
+output:
+1.- First of all docker downloads the busybox image
+2.- Then display 'hi there'
+
+example:
+docker run busybox ls
+output:
+1.- Display all the folders in that image
+2.- This occurs because is an image of an entirelly OS, these folders are NOT from my PC
+3.- Command ls are in the image.
+
+example:
+docker ps
+output:
+1.- List all running containers, by showing the headers of a table, when its empty
+
+example:
+docker run busybox ping google.com
+ping is an OS function
+output:
+1.- Run a ping for google.com 
+
+example:
+docker ps --all 
+&&
+docker ps -a 
+1.- Does the same thing ^^
+2.- List all the existing containers
+
+docker run = docker create + docker start
+
+example:
+docker start 
+output:
+1.- Docker in this case show the container's ID
+
+example:
+docker start -a
+1.- Docker show the otput from the image
+
+We can't override the default command in the container
+docker start -a <some container ID running before>
+1.- Docker emmits a message: younnot start and attach multiple containers at once
+
+To remove stopped containers
+docker system prune
+1.- This command remove: all stopped containers, all networks not used by at least one contaier,
+all dangling images, all build cache
+2.- And ask if you want to continue
+3.- Then delete all the things listed above
+
+To get logs from a container
+docker logs <container ID>
+1.- This doesnt  rerun or restarts the container, just show all the logs emmited from that container
+
+To stop a container
+docker stop <container ID>
+1.- Send a terminate signal, and stop the process when this ends
+
+docker kill <container ID>
+1.- Just kills the signal, stop the process inmediatelly, the main use of kill is when container
+seems to be stuck or lock
+
+To access to the commands that are build in the container
+docker exec -it <container ID> <command>
+docker = Reference the docker client
+exec = Run another command
+-it = Allow us to provide input to the container
+-i = Attach our terminal to the default in channel
+-t = Is to show the output in a proper maner in the terminal (show the cli "little things")
+<container ID> = ID of the container
+<command> = Command to execute
+
+shell access to the container (terminal in the container context)
+docker exec -it <container ID> sh
+sh = exec terminal inside container, all the shell comands works here
+sh = command processors like: bash, powershell, zsh, sh
+to exit from this terminal, write exit + enter, or ctrl + d
+
+Starting container with a shell
+docker run -it busybox sh
+docker run -it <container name> sh
+to exit from this terminal, write exit + enter, or ctrl + d
+
+Every container has their independent file system, an they doesnt share files between them
+
+
+
+
+
+
+
+
+
+
+
+
