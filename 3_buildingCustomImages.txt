@@ -1,0 +1,21 @@
+example:
+to start a docker contained (previously build)
+docker run <container-id>
+
+example:
+tagging an image
+the convention is:
+
+<docker-id>/<repo/project-name>:<version>
+hertzian/redis:latest
+
+for creating a tagging:
+docker build -t <docker-id>/<repo/project-name>:<version> .
+docker build -t hertzian/redis-server:latest .
+is very important LAST dot
+
+after creating the tag, and building that container,
+run the container:
+<docker-id>/<repo/project-name>:<version> 
+docker start hertzian/redis-server:latest 
+
