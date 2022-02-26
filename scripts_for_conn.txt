@@ -1,0 +1,30 @@
+postgress
+docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
+host:
+localhost
+port:
+5432
+username:
+postgres
+password:
+password
+to run the CLI: docker exec -it <container-id> bash once in the CLI: psql -h localhost -p 5432 -U postgres -W
+then just write "password"
+and you're in!
+
+mongo
+this install the lastest version of mongo
+docker run --name some-mongo -p 27017:27017 -d mongo
+to run the CLI: docker exec -it <container-id> bash once in the CLI: mongo
+
+this will create an user in mongodb
+first enter mongo via shell
+then:
+use admin
+db.createUser({
+  user : "mongo",
+  pwd: "password",
+  roles : [{ role : "root", db : "admin" }]
+})
+to confirm if the users has been created successfully
+db.getUsers()
