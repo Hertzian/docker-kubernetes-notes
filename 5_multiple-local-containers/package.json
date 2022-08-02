@@ -1,0 +1,17 @@
+{
+  "name": "5_multiple-local-containers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "redis": "2.8.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
