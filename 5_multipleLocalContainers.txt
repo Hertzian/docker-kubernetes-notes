@@ -1,0 +1,48 @@
+docker compose is used to start up multiple docker containers at the same time,
+automates some of the long-winded arguments we were passing to 'docker run'
+also is for in certain way use the docker CLI commands for repetitive tasks
+
+example of the CLI:
+docker build -t <docker-id>/<project_name>:<version>
+docker run -p 4001:8080 <docker-id>/<project_name>
+
+containers we use in the example after 'services' tag in docker-compose.yml
+first of all at the top of the file
+version: '3' // is the version of docker-compose to use
+
+-redis-server
+  make it using the 'redis' image
+-node-app
+  make using the Dockerfile in folder 5_...
+  map port 4001 from our machine to 8081 in docker container
+
+important note, these commands work in the project folder only
+docker run <my-image> 
+-docker-compose 'equivalent':
+docker-compose up
+
+docker build .
+docker rum <my-image>
+-docker-compose 'equivalent':
+docker-compose up --build
+
+launch in background:
+docker-compose up -d
+
+stop containers
+docker-compose down
+
+restart policies:
+'no'
+-never attempt to restart this . container if it stops or crashes, ALWAYS need single or double quotes
+in docker-compose file
+'always'
+-if this container stops *for any reason* always attempt to restart it
+'on-failure'
+-only restart if the container stops with an error code
+'unless-stopped'
+-always restart unless we (the devs) forcibly stop it
+
+to see docker-compose running containers:
+(only looks for the docker-compose.yml in the working directory containers)
+docker-compose ps

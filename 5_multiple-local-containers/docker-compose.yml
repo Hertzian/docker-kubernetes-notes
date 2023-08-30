@@ -1,8 +1,14 @@
 version: '3'
 services:
+  # container name, all the containers share the same network
   redis-server:
     image: 'redis'
+  # container name
   node-app:
+    # restart policies apply here:
+    restart: on-failure
     build: .
     ports:
+      # the '-' specifies an array
+      # "<localmachine>:<container>"
       - "4001:8081"

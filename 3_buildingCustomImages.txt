@@ -7,15 +7,15 @@ tagging an image
 the convention is:
 
 <docker-id>/<repo/project-name>:<version>
-hertzian/redis:latest
+username/redis:latest
 
 for creating a tagging:
 docker build -t <docker-id>/<repo/project-name>:<version> .
-docker build -t hertzian/redis-server:latest .
-is very important LAST dot
+docker build -t username/redis-server:latest .
+is VERY important LAST dot
 
 after creating the tag, and building that container,
 run the container:
 <docker-id>/<repo/project-name>:<version> 
-docker start hertzian/redis-server:latest 
+docker start username/redis-server:latest 
 
